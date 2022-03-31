@@ -28,7 +28,7 @@ export async function deleteBunny() {
 }
 
 
-export function createBunny() {
+export async function createBunny() {
     const response = await client
         .from('fuzzy_bunnies')
         .insert({
