@@ -5,7 +5,7 @@ import {
     logout 
 } from '../fetch-utils.js';
 
-const form = document.querySelectorAll('.bunny-form');
+const form = document.querySelector('.bunny-form');
 const logoutButton = document.getElementById('logout');
 
 form.addEventListener('submit', async e => {
@@ -26,9 +26,10 @@ form.addEventListener('submit', async e => {
 
 window.addEventListener('load', async() => {
     const select = document.querySelector('select');
-    const families = getFamilies();
+    const families = await getFamilies();
 
     for (let family of families) {
+        const option = document.createElement('option');
         option.value = family.id;
         option.textContent = family.name;
         
