@@ -7,10 +7,10 @@ import {
 
 checkAuth();
 
-const familiesEl = document.querySelector('families-container');
+const familiesEl = document.querySelector('.families-container');
 const logoutButton = document.getElementById('logout');
 
-logoutButton.addEventListener(() => {
+logoutButton.addEventListener('click', () => {
     logout();
 });
 
@@ -19,6 +19,7 @@ function displayFamilies(families) {
     familiesEl.textContent = '';
     
     for (let family of families) {
+        const familyEl = document.createElement('div');
         const nameEl = document.createElement('h3');
         const bunniesEl = document.createElement('div');
 
@@ -27,7 +28,7 @@ function displayFamilies(families) {
 
         nameEl.textContent = family.name;
 
-        for (let rabbit of family.fuzzy_bunnies) {
+        for (let bunny of family.fuzzy_bunnies) {
             const bunnyEl = document.createElement('div');
 
             bunnyEl.classList.add('bunny');

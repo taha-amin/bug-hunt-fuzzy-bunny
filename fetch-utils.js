@@ -1,7 +1,7 @@
 const SUPABASE_URL = 'https://gxwgjhfyrlwiqakdeamc.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNjQxMTMxMiwiZXhwIjoxOTUxOTg3MzEyfQ.PHekiwfLxT73qQsLklp0QFEfNx9NlmkssJFDnlvNIcA';
 
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getUser() {
     return client.auth.session();
@@ -18,7 +18,7 @@ export async function getFamilies() {
     return checkError(response);    
 }
 
-export async function deleteBunny() {
+export async function deleteBunny(id) {
     const response = await client
         .from('fuzzy_bunnies')
         .match({ id: id })
@@ -28,7 +28,7 @@ export async function deleteBunny() {
 }
 
 
-export async function createBunny() {
+export async function createBunny(bunny) {
     const response = await client
         .from('fuzzy_bunnies')
         .insert({
