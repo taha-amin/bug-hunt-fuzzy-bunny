@@ -8,7 +8,7 @@ import {
 const form = document.querySelectorAll('.bunny-form');
 const logoutButton = document.getElementById('logout');
 
-form.addEventListener(e => {
+form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const formData = new FormData(form);

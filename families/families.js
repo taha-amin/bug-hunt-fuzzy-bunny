@@ -49,7 +49,7 @@ function displayFamilies(families) {
 }
 
 window.addEventListener('load', async() => {
-    const families = getFamilies();
+    const families = await getFamilies();
 
     displayFamilies(families);
 });
